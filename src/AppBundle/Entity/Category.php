@@ -28,6 +28,10 @@ class Category
      */
     private $title;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
+     */
+    private $products;
 
     /**
      * Get id
