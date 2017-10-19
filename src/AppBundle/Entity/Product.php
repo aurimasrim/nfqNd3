@@ -36,11 +36,11 @@ class Product
     private $price;
 
     /**
-     * @var int
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
+     * @var Category
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="products", cascade={"persist"})
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id", nullable=false)
      */
-    private $categoryId;
+    private $category;
 
     /**
      * @var bool
@@ -48,7 +48,6 @@ class Product
      * @ORM\Column(name="active", type="boolean")
      */
     private $active;
-
 
     /**
      * Get id
@@ -109,27 +108,27 @@ class Product
     }
 
     /**
-     * Set categoryId
+     * Set category
      *
-     * @param integer $categoryId
+     * @param Category $category
      *
      * @return Product
      */
-    public function setCategoryId($categoryId)
+    public function setCategory($category)
     {
-        $this->categoryId = $categoryId;
+        $this->category = $category;
 
         return $this;
     }
 
     /**
-     * Get categoryId
+     * Get category
      *
-     * @return int
+     * @return Category
      */
-    public function getCategoryId()
+    public function getCategory()
     {
-        return $this->categoryId;
+        return $this->category;
     }
 
     /**
